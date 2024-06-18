@@ -5,7 +5,7 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 1Mi
+    storage: 2Mi
   accessModes:
     - ReadOnlyMany
   hostPath:
