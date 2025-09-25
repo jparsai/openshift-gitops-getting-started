@@ -1,12 +1,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: test-aggregated-role
+  name: admin
   labels:
-    app.kubernetes.io/managed-by: argocd
-    app.kubernetes.io/name: argocd
-    app.kubernetes.io/part-of: argocd
-    example.com/test: "true"
-    # Adding a new label - this is the only change we want to make
-    example.com/managed-by-argocd: "true"
-# Notice: We're NOT including the aggregationRule in our Git manifest
+    rbac.authorization.k8s.io/aggregate-to-test-admin: "true"
+# Notice: No aggregationRule field - this is what causes the issue
+# ArgoCD only knows about the fields defined in this manifest
