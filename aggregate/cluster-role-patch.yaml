@@ -3,6 +3,6 @@ kind: ClusterRole
 metadata:
   name: admin
   labels:
-    rbac.authorization.k8s.io/aggregate-to-test-admin: "true"
+    rbac.authorization.k8s.io/aggregate-to-test1-admin: "true"
 # Notice: No aggregationRule field - this is what causes the issue
 # ArgoCD only knows about the fields defined in this manifest
