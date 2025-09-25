@@ -1,18 +1,12 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: user-application-controller
+  name: test-aggregated-role
   labels:
     app.kubernetes.io/managed-by: argocd
-    argocd/aggregate-to-admin: "true"
-    # Adding a new label to test the issue
-    custom.example.com/modified: "true"
-rules:
-  # Your existing rules here
-  - verbs:
-      - "*"
-    apiGroups:
-      - ""
-    resources:
-      - namespaces
-      - persistentvolumeclaims
+    app.kubernetes.io/name: argocd
+    app.kubernetes.io/part-of: argocd
+    example.com/test: "true"
+    # Adding a new label - this is the only change we want to make
+    example.com/managed-by-argocd: "true"
+# Notice: We're NOT including the aggregationRule in our Git manifest
